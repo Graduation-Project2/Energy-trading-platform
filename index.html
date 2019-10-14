@@ -995,13 +995,14 @@
               simpleStorage.balanceOf(contractMyAddress, function (error, success) {
                 if (error) console.log("Something went wrong: " + error);
                 else {
-                  document.getElementById('storedSEN').innerHTML = success.toString(10);
+                  
                   var tmpp = ((success.toString(10))/1000000000000000000);
+                  document.getElementById('storedSEN').innerHTML = tmpp.toString();
                   console.log("Balance: " + tmpp.toString());
                 }
               });
 
-              web3.eth.getBalance(contractMyAddress, function (error, success) {
+              web3.eth.getBalance(contractMyAddress, function (error, result) {
                 if (error) console.log("Something went wrong: " + error);
                 else {
                   console.log('Ether:', web3.fromWei(result,'ether')); 
