@@ -229,7 +229,7 @@
                       <i class="mdi mdi-information-outline text-muted mdi-2x"></i>
                     </span>
                   </div>
-                  <p class="text-black">1ETH = $0</p>
+                  <p class="text-black">1ETH = </p> <p class="text-black" id= "ETHPrice1">$---</p>
                   <div class="wrapper w-50 mt-4">
                     <canvas height="45" id="stat-line_1"></canvas>
                   </div>
@@ -242,7 +242,7 @@
                   <div class="d-flex justify-content-between">
                     <p>ETH/SEN</p>
                   </div>
-                  <p class="text-black">1ETH = 100SEN</p>
+                  <p class="text-black">1ETH = <br>100SEN</p>
                   <div class="wrapper w-50 mt-4">
                     <canvas height="45" id="stat-line_2"></canvas>
                   </div>
@@ -329,7 +329,7 @@
                     </div>
                     <div class="wrapper d-flex">
                       <small class="text-primary font-weight-medium mr-2">ETH</small>
-                      <small class="text-gray" id="ETHPrice">$0</small>
+                      <small class="text-gray" id="ETHPrice2">$---</small>
                     </div>
                   </div>
                   <br>
@@ -510,7 +510,10 @@
                               processData(data.bids, "bids", true);
                               processData(data.asks, "asks", false);
 
-                              console.log(data.asks[0]);
+                              //console.log();
+                              var tmpv = '$' + data.asks[0]["value"];
+                              document.getElementById('ETHPrice1').innerHTML = tmpv;
+                              document.getElementById('ETHPrice2').innerHTML = tmpv;
 
                               //console.log(res);
                               return res;
@@ -993,10 +996,17 @@
                 if (error) console.log("Something went wrong: " + error);
                 else {
                   document.getElementById('storedSEN').innerHTML = success.toString(10);
-                  console.log("Balance: " + success.toString(10));
+                  console.log("Balance: " + success.toString(10)/1000000000000000000);
                 }
               });
 
+              web3.eth.balanceOf(contractMyAddress, function (error, success) {
+                if (error) console.log("Something went wrong: " + error);
+                else {
+                  document.getElementById('storedETH').innerHTML = success.toString(10);
+                  console.log("Balance: " + success.toString(10)/1000000000000000000);
+                }
+              });
               web3.eth.getBlockNumber(function (e, r) {
                 if (r == undefined) {
                   document.getElementById('lastBlock').innerHTML = "메타마스크를 설치해주세요";
