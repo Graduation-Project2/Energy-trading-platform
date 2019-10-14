@@ -996,15 +996,16 @@
                 if (error) console.log("Something went wrong: " + error);
                 else {
                   document.getElementById('storedSEN').innerHTML = success.toString(10);
-                  console.log("Balance: " + success.toString(10)/1000000000000000000);
+                  var tmpp = ((success.toString(10))/1000000000000000000);
+                  console.log("Balance: " + tmpp.toString());
                 }
               });
 
-              web3.eth.balanceOf(contractMyAddress, function (error, success) {
+              web3.eth.getBalance(contractMyAddress, function (error, success) {
                 if (error) console.log("Something went wrong: " + error);
                 else {
-                  document.getElementById('storedETH').innerHTML = success.toString(10);
-                  console.log("Balance: " + success.toString(10)/1000000000000000000);
+                  console.log('Ether:', web3.fromWei(result,'ether')); 
+                  document.getElementById("storedETH").innerHTML = web3.fromWei(result,'ether');
                 }
               });
               web3.eth.getBlockNumber(function (e, r) {
