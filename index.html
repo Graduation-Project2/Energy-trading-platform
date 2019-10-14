@@ -986,6 +986,7 @@
               // simpleStorage.get(function (e, r) {
               //   document.getElementById('').innerHTML = r.toNumber();
               // });
+              console.log("contractMyAddress: " + contractMyAddress);
               simpleStoragstoredDatae.balanceOf(contractMyAddress, function (error, success) {
                 if (error) console.log("Something went wrong: " + error);
                 else console.log("Balance: " + success.toString(10));
