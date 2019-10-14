@@ -318,7 +318,7 @@
                     <p class="ml-1 font-weight-bold">ETH</p>
                   </div>
                   <div class="d-flex align-items-end mt-2">
-                    <h3><span id="storedETH">0</span></h3>
+                    <h3><span id="storedSEN">0</span></h3>
                     <p class="ml-1 font-weight-bold">SEN Token</p>
                   </div>
                   <br>
@@ -509,6 +509,8 @@
                               var res = [];
                               processData(data.bids, "bids", true);
                               processData(data.asks, "asks", false);
+
+                              console.log(data.asks[0]);
 
                               //console.log(res);
                               return res;
@@ -987,9 +989,12 @@
               //   document.getElementById('').innerHTML = r.toNumber();
               // });
               console.log("contractMyAddress: " + contractMyAddress);
-              simpleStoragstoredDatae.balanceOf(contractMyAddress, function (error, success) {
+              simpleStorage.balanceOf(contractMyAddress, function (error, success) {
                 if (error) console.log("Something went wrong: " + error);
-                else console.log("Balance: " + success.toString(10));
+                else {
+                  document.getElementById('storedSEN').innerHTML = success.toString(10);
+                  console.log("Balance: " + success.toString(10));
+                }
               });
 
               web3.eth.getBlockNumber(function (e, r) {
