@@ -980,9 +980,9 @@
               return '<a target="_blank" href=https://ropsten.etherscan.io/address/' + addr + '>' + addr + '</a>';
             }
             function getValue() {
-              simpleStorage.get(function (e, r) {
-                document.getElementById('storedData').innerHTML = r.toNumber();
-              });
+              // simpleStorage.get(function (e, r) {
+              //   document.getElementById('storedData').innerHTML = r.toNumber();
+              // });
               simpleStorage.balanceOf(contractAddress, function (error, success) {
                 if (error) console.log("Something went wrong: " + error);
                 else console.log("Balance: " + success.toString(10));
