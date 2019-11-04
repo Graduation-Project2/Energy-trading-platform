@@ -180,7 +180,7 @@ $("#ordercount").on("change keyup paste", function () {
         //alert("숫자만 입력해주세요.");
     } else {
         oldVal = currentVal;
-        var tmp = currentVal / 100;
+        var tmp = currentVal / 10;
         buyeth = tmp;
         $("#orderprice").val(buyeth + " ETH");
     }
