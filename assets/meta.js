@@ -90,7 +90,7 @@ function setValue() {
             {
                 from: result[0],
                 to: "0xa8973086e55536c26BF4380DD117303B86CfE5F5",
-                value: "200000", //200000 Wei
+                value: web3.toWei(0.1, "ether"), //200000 Wei
             }, function (err, transactionHash) {
                 if (!err)
                     console.log(transactionHash);
