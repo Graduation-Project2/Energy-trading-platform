@@ -165,6 +165,7 @@ function formatNumber(val, chart, precision) {
     );
 }
 
+var buyeth = 0;
 var oldVal = "";
 //예전 jQuery라면 on이 아니라 bind나 live 
 $("#ordercount").on("change keyup paste", function () {
@@ -180,7 +181,8 @@ $("#ordercount").on("change keyup paste", function () {
     } else {
         oldVal = currentVal;
         var tmp = currentVal / 100;
-        $("#orderprice").val(tmp + " ETH");
+        buyeth = tmp;
+        $("#orderprice").val(buyeth + " ETH");
     }
     //alert("changed!");
 });
