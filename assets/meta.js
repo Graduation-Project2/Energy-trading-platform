@@ -84,7 +84,7 @@ function getValue() {
     });
 }
 function setValue() {
-    alert("changed!");
+    alert("에너지 구매를 시도합니다.");
     web3.eth.getAccounts(function (error, result) {
         web3.eth.sendTransaction(
             {

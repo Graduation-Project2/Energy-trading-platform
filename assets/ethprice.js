@@ -182,8 +182,12 @@ $("#ordercount").on("change keyup paste", function () {
         oldVal = currentVal;
         var tmp = currentVal / 10;
         buyeth = tmp;
+        buyeth2 = buyeth * dollar;
         $("#orderprice").val(buyeth + " ETH");
+        document.getElementById('infoo').innerHTML = "$" + buyeth2;
     }
+
+    
     //alert("changed!");
 });
 
