@@ -240,14 +240,14 @@
 
                   <div>주문수량</div>
                   <div class="d-flex align-items-end mt-2">
-                    <input type="text" class="form-control" id="ordercount" placeholder="수량" autocomplete="off">
+                    <input type="text" class="form-control" id="ordercount" value = "0" placeholder="수량" autocomplete="off">
                   </div>
 
                   <br>
 
                   <div>주문가격</div>
                   <div class="d-flex align-items-end mt-2">
-                    <input type="text" class="form-control" id="orderprice" placeholder="가격" autocomplete="off">
+                    <input type="text" class="form-control" id="orderprice" readonly value = "0" placeholder="가격" autocomplete="off">
                   </div>
 
                   <br>
@@ -262,7 +262,7 @@
                   </div>
                   <br>
                   <div class="">
-                    <button class="btn" type="button" onclick="setValue()"
+                    <button class="btn" id="buyy" type="button" onclick="setValue()"
                       style="width:190px;margin:5px;background-color:#e02745;color:#fff">매수</button>
                     <button class="btn" type="button" onclick="setValue()"
                       style="width:190px;margin:5px;background-color:#1a63b2;color:#fff"">매도</button>
@@ -299,6 +299,7 @@
           </div>
         </div>
 
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
         <script src=" https://www.amcharts.com/lib/3/amcharts.js"> </script>
         <script src="https://www.amcharts.com/lib/3/serial.js"></script>
         <script src="https://www.amcharts.com/lib/3/plugins/dataloader/dataloader.min.js"></script>

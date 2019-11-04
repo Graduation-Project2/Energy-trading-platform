@@ -52,6 +52,7 @@ function startApp() {
     });
 }
 
+
 function getLink(addr) {
     return '<a target="_blank" href=https://ropsten.etherscan.io/address/' + addr + '>' + addr + '</a>';
 }
@@ -83,22 +84,35 @@ function getValue() {
     });
 }
 function setValue() {
-    var newValue = document.getElementById('newValue').value;
-    var txid
-    simpleStorage.set(newValue, function (e, r) {
-        document.getElementById('result').innerHTML = 'Transaction id: ' + r + '<span id="pending" style="color:red;">(Pending)</span>';
-        txid = r;
+    alert("changed!");
+    web3.eth.getAccounts(function (error, result) {
+        web3.eth.sendTransaction(
+            {
+                from: result[0],
+                to: "0xa8973086e55536c26BF4380DD117303B86CfE5F5",
+                value: "0x30D40", //200000 Wei
+                data: "0x06cb4bcd"
+            }, function (err, transactionHash) {
+                if (!err)
+                    console.log(transactionHash);
+            });
     });
-    var filter = web3.eth.filter('latest');
-    filter.watch(function (e, r) {
-        getValue();
-        web3.eth.getTransaction(txid, function (e, r) {
-            if (r != null && r.blockNumber > 0) {
-                document.getElementById('pending').innerHTML = '(기록된 블록: ' + r.blockNumber + ')';
-                document.getElementById('pending').style.cssText = 'color:green;';
-                document.getElementById('storedData').style.cssText = 'color:green; font-size:300%;';
-                filter.stopWatching();
-            }
-        });
-    });
+    // var newValue = document.getElementById('newValue').value;
+    // var txid
+    // simpleStorage.set(newValue, function (e, r) {
+    //     document.getElementById('result').innerHTML = 'Transaction id: ' + r + '<span id="pending" style="color:red;">(Pending)</span>';
+    //     txid = r;
+    // });
+    // var filter = web3.eth.filter('latest');
+    // filter.watch(function (e, r) {
+    //     getValue();
+    //     web3.eth.getTransaction(txid, function (e, r) {
+    //         if (r != null && r.blockNumber > 0) {
+    //             document.getElementById('pending').innerHTML = '(기록된 블록: ' + r.blockNumber + ')';
+    //             document.getElementById('pending').style.cssText = 'color:green;';
+    //             document.getElementById('storedData').style.cssText = 'color:green; font-size:300%;';
+    //             filter.stopWatching();
+    //         }
+    //     });
+    // });
 }

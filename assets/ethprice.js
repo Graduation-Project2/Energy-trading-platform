@@ -1,3 +1,4 @@
+var dollar = 0;
 var chart = AmCharts.makeChart("chartdiv", {
     "type": "serial",
     "theme": "dark",
@@ -71,6 +72,7 @@ var chart = AmCharts.makeChart("chartdiv", {
             processData(data.asks, "asks", false);
 
             //console.log();
+            dollar = data.asks[0]["value"];
             var tmpv = '$' + data.asks[0]["value"];
             document.getElementById('ETHPrice1').innerHTML = tmpv;
             document.getElementById('ETHPrice2').innerHTML = tmpv;
@@ -162,3 +164,24 @@ function formatNumber(val, chart, precision) {
         }
     );
 }
+
+var oldVal = "";
+//예전 jQuery라면 on이 아니라 bind나 live 
+$("#ordercount").on("change keyup paste", function () {
+    var currentVal = $(this).val();
+
+    if (currentVal == oldVal) {
+        return;
+    }
+
+    if (isNaN(currentVal) == true) {
+        $(this).val("");
+        //alert("숫자만 입력해주세요.");
+    } else {
+        oldVal = currentVal;
+        var tmp = currentVal / 100;
+        $("#orderprice").val(tmp + " ETH");
+    }
+    //alert("changed!");
+});
+
