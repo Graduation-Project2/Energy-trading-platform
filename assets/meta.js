@@ -42,7 +42,8 @@ function startApp() {
     document.getElementById('contractAddr').innerHTML = getLink(contractAddress);
     web3.eth.getAccounts(function (e, r) {
         if (e) {
-            alert("메타마스크를 설치해주세요")
+            document.getElementById('accountAddr').innerHTML = "메타마스크를 설치해주세요.";
+            //alert("메타마스크를 설치해주세요")
         } else {
             document.getElementById('accountAddr').innerHTML = getLink(r[0]);
             contractMyAddress = r[0];
