@@ -20,7 +20,7 @@
   <link rel="shortcut icon" href="asssets/images/favicon.ico" />
 </head>
 
-<body class="header-fixed">
+<body class="header-fixed" onload="setAddresss()"> 
   <!-- partial:partials/_header.html -->
   <nav class="t-header">
     <div class="t-header-brand-wrapper">
@@ -102,12 +102,12 @@
                     <br>
                     <br>
                     <div class="d-flex align-items-end mt-2" style="margin:8px">
-                      <input type="text" class="form-control" id="orderprice" readonly value="0" placeholder="가격"
+                      <input type="text" class="form-control" id="myaddd" readonly value="0" placeholder="주소"
                         autocomplete="off">
                     </div>
                     <br>
                     <div class="">
-                      <button class="btn" id="buyy" type="button" onclick="setValue()"
+                      <button class="btn" id="buyy" type="button" onclick="window.location.reload()"
                         style="width:90%;margin:10px;background-color:#2752e0;color:#fff">조회</button>
                       <!-- <button class="btn" type="button" onclick="setValue()"
                         style="width:190px;margin:5px;background-color:#1a63b2;color:#fff"">매도</button> -->
@@ -210,7 +210,7 @@
                   </ul>
                 </div>
                 <div class="col-sm-6 text-center text-sm-left mt-3 mt-sm-0">
-                  <small class="text-muted d-block">Copyright © 2019 <a href="" target="_blank">팀명</a>. All
+                  <small class="text-muted d-block">Copyright © 2019 <a href="" target="_blank">SEN</a>. All
                     rights
                     reserved</small>
                 </div>
