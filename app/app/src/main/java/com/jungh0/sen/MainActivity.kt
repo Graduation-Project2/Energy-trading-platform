@@ -19,9 +19,10 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         supportActionBar?.hide()
 
+        web.settings.setAppCacheEnabled(false)
         web.settings.setSupportMultipleWindows(true)
         web.settings.javaScriptEnabled = true
-        web.loadUrl("https://graduation-project2.github.io/Energy-trading-platform/index.html")
+        web.loadUrl("https://graduation-project2.github.io/Energy-trading-platform/index.html?11")
         web.setWebViewClient(object : WebViewClient() {
 
             override fun shouldOverrideUrlLoading(view: WebView, url: String): Boolean {
@@ -59,7 +60,7 @@ class MainActivity : AppCompatActivity() {
     private fun showCreateCategoryDialog(url: String) {
         AlertDialog.Builder(this).apply {
             val dialogView = layoutInflater.inflate(R.layout.dialog, null)
-            val editText = dialogView.findViewById<EditText>(R.id.editTextName)
+            //val editText = dialogView.findViewById<EditText>(R.id.editTextName)
 
             setView(dialogView)
 
@@ -67,11 +68,12 @@ class MainActivity : AppCompatActivity() {
             //setMessage("Enter Name Below")
             setPositiveButton("이동") { _, _ ->
                 loading()
-                web.loadUrl(url)
+                web.loadUrl("https://graduation-project2.github.io/Energy-trading-platform/account.html?id=0x38a0D2f379943561038680b064d54d548a3B8041&11")
             }
 
             setNegativeButton("") { _, _ ->
-                //pass
+                loading()
+                web.loadUrl("https://graduation-project2.github.io/Energy-trading-platform/account.html?id=0x38a0D2f379943561038680b064d54d548a3B8041&11")
             }
         }.create().show()
     }
